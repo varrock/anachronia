@@ -17,6 +17,7 @@ export class MessageResponder {
     }
 
     handle(message: Message): Promise<Message | Message[]> {
+        const {icon, image, initial} = dinosaurs.pavosaurus
         const embed = {
             "title": dinosaurs.pavosaurus.name,
             "description": "The next breeding ticks occur at:",
@@ -28,10 +29,10 @@ export class MessageResponder {
                 "text": "footer text"
             },
             "thumbnail": {
-                "url": dinosaurs.pavosaurus.icon
+                "url": icon
             },
             "image": {
-                "url": dinosaurs.pavosaurus.image
+                "url": image
             },
             "author": {
                 "name": message.author.username,
@@ -41,11 +42,11 @@ export class MessageResponder {
             "fields": [
                 {
                     "name": "Breeding Pen",
-                    "value": "some of these properties have certain limits..."
+                    "value": initial
                 },
                 {
                     "name": "Large Pen",
-                    "value": "try exceeding some of them!"
+                    "value": initial.clone().add(4200, 'minutes')
                 },
 
             ]
