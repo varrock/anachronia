@@ -1,8 +1,8 @@
 import Dinosaur from "../interfaces";
 import {Message} from "discord.js";
-import {nextBreedingTick, nextRegularTick} from "../calculations"
+import {nextBreedingTick, nextRegularTick, humaniseTime} from "../calculations"
 
-export default function generateDinosaurEmbed(dinosaurInfo: Dinosaur, message: Message){
+export default function generateDinosaurEmbed(dinosaurInfo: Dinosaur, message: Message) {
     const {icon, image, initial, wiki, name} = dinosaurInfo;
     return {
         "title": name,
@@ -20,19 +20,16 @@ export default function generateDinosaurEmbed(dinosaurInfo: Dinosaur, message: M
         "image": {
             "url": image
         },
-        // "author": {
-        //     "name": message.author.username,
-        //     "url": "https://discordapp.com",
-        //     "icon_url": message.author.avatarURL()
-        // },
         "fields": [
             {
                 "name": "Breeding Pen",
-                "value": nextBreedingTick(dinosaurInfo)
+                "value": `${nextBreedingTick(dinosaurInfo).format('Do MMMM YYYY, HH:mm')} UTC\n`
+                    + humaniseTime(nextBreedingTick(dinosaurInfo))
             },
             {
                 "name": "Large Pen",
-                "value": nextRegularTick(dinosaurInfo)
+                "value": `${nextRegularTick(dinosaurInfo).format('Do MMMM YYYY, HH:mm')} UTC\n`
+                    + humaniseTime(nextRegularTick(dinosaurInfo))
             },
 
         ]
