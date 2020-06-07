@@ -3,7 +3,7 @@ import {Message} from "discord.js";
 import {nextBreedingTick, nextRegularTick, humaniseTime} from "../calculations"
 
 export default function generateDinosaurEmbed(dinosaurInfo: Dinosaur, message: Message) {
-    const {icon, image, initial, wiki, name} = dinosaurInfo;
+    const {name, penType, icon, image, wiki} = dinosaurInfo;
     return {
         "title": name,
         "description": "The next breeding ticks occur at:",
@@ -27,7 +27,7 @@ export default function generateDinosaurEmbed(dinosaurInfo: Dinosaur, message: M
                     + humaniseTime(nextBreedingTick(dinosaurInfo))
             },
             {
-                "name": "Large Pen",
+                "name": `${penType} Pen`,
                 "value": `${nextRegularTick(dinosaurInfo).format('Do MMMM YYYY, HH:mm')} UTC\n`
                     + humaniseTime(nextRegularTick(dinosaurInfo))
             },
