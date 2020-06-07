@@ -1,5 +1,5 @@
 import {Message} from "discord.js";
-import {PingFinder} from "./pingFinder";
+import {PavosaurusFinder} from "./pavosaurusFinder";
 import {inject, injectable} from "inversify";
 import {TYPES} from "../types";
 import {dinosaurs, generateDinosaurEmbed} from "../../utils/"
@@ -7,17 +7,16 @@ import {dinosaurs, generateDinosaurEmbed} from "../../utils/"
 
 @injectable()
 export class MessageResponder {
-    private pingFinder: PingFinder;
+    private pavosaurusFinder: PavosaurusFinder;
 
     constructor(
-        @inject(TYPES.PingFinder) pingFinder: PingFinder
+        @inject(TYPES.PavosaurusFinder) pavosaurusFinder: PavosaurusFinder
     ) {
-        this.pingFinder = pingFinder;
+        this.pavosaurusFinder = pavosaurusFinder;
     }
 
     handle(message: Message): Promise<Message | Message[]> {
-        if (this.pingFinder.isPing(message.content)) {
-            console.log(generateDinosaurEmbed(dinosaurs.pavosaurus, message));
+        if (this.pavosaurusFinder.isPavosaurus(message.content)) {
             return message.channel.send({embed: generateDinosaurEmbed(dinosaurs.pavosaurus, message)});
         }
 
