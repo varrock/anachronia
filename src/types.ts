@@ -4,4 +4,5 @@ export const TYPES = {
     Token: Symbol("Token"),
     MessageResponder: Symbol("MessageResponder"),
     PavosaurusFinder: Symbol("PavosaurusFinder"),
+    BrutishFinder: Symbol("BrutishFinder"),
 };
