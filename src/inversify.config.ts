@@ -11,6 +11,7 @@ import {
     ScimitopFinder,
     JadinkoFinder,
     VaranusaurFinder,
+    SalamanderFinder,
 } from "./services"
 
 let container = new Container();
@@ -25,5 +26,6 @@ container.bind<ArcaneFinder>(TYPES.ArcaneFinder).to(ArcaneFinder).inSingletonSco
 container.bind<ScimitopFinder>(TYPES.ScimitopFinder).to(ScimitopFinder).inSingletonScope();
 container.bind<JadinkoFinder>(TYPES.JadinkoFinder).to(JadinkoFinder).inSingletonScope();
 container.bind<VaranusaurFinder>(TYPES.VaranusaurFinder).to(VaranusaurFinder).inSingletonScope();
+container.bind<SalamanderFinder>(TYPES.SalamanderFinder).to(SalamanderFinder).inSingletonScope();
 
 export default container;

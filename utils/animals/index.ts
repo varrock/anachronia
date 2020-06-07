@@ -4,6 +4,7 @@ import {arcane} from "./arcane";
 import {scimitops} from "./scimitops";
 import {jadinko} from "./jadinko";
 import {varanusaur} from "./varanusaur";
+import {salamander} from "./salamander";
 
 export {
     pavosaurus,
@@ -12,4 +13,5 @@ export {
     scimitops,
     jadinko,
     varanusaur,
+    salamander,
 }
