@@ -20,6 +20,11 @@ export class Bot {
     }
 
     public listen(): Promise<string> {
+
+        this.client.on('ready', () => {
+            this.client.user.setActivity("with dinosaurs!");
+        })
+
         this.client.on('message', (message: Message) => {
             if (!message.content.startsWith(prefix) || message.author.bot) return;
 
