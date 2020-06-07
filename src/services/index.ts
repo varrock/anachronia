@@ -3,6 +3,7 @@ import {BrutishFinder} from './brutishFinder'
 import {ArcaneFinder} from "./arcaneFinder";
 import {ScimitopFinder} from "./scimitopFinder";
 import {JadinkoFinder} from "./jadinkoFinder";
+import {VaranusaurFinder} from "./varanusaurFinder";
 
 export {
     PavosaurusFinder,
@@ -10,4 +11,5 @@ export {
     ArcaneFinder,
     ScimitopFinder,
     JadinkoFinder,
+    VaranusaurFinder,
 }

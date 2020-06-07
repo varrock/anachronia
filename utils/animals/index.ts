@@ -3,6 +3,7 @@ import {brutish} from "./brutish";
 import {arcane} from "./arcane";
 import {scimitops} from "./scimitops";
 import {jadinko} from "./jadinko";
+import {varanusaur} from "./varanusaur";
 
 export {
     pavosaurus,
@@ -10,4 +11,5 @@ export {
     arcane,
     scimitops,
     jadinko,
+    varanusaur,
 }
