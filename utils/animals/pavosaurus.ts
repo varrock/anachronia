@@ -9,6 +9,7 @@ const wikiURL = "https://runescape.wiki/w/Pavosaurus_rex"
 
 export const pavosaurus: Dinosaur = {
     name: "Pavosaurus Rex",
+    penType: "Large",
     initial: initialTick,
     icon: iconURL,
     image: imageURL,

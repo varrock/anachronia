@@ -9,6 +9,7 @@ const wikiURL = "https://runescape.wiki/w/Brutish_dinosaur_(player-owned_farm)"
 
 export const brutish: Dinosaur = {
     name: "Brutish Dinosaur",
+    penType: 'Large',
     initial: initialTick,
     icon: iconURL,
     image: imageURL,

@@ -2,6 +2,7 @@ import { Moment } from "moment";
 
 export default interface Dinosaur {
     readonly name: string
+    readonly penType: string
     readonly initial: Moment
     readonly icon: string
     readonly image: string
