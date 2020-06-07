@@ -5,7 +5,7 @@ import Dinosaur from "../interfaces";
 const initialTick = moment.utc(Date.UTC(2020, 5, 5, 18, 0))
 const iconURL = "https://runescape.wiki/images/8/86/Pavosaurus_rex_icon.png"
 const imageURL = "https://runescape.wiki/images/thumb/8/89/Pavosaurus_rex.png/300px-Pavosaurus_rex.png"
-const wikiURL = "https://runescape.wiki/w/Pavosaurus_rex"
+const wikiURL = "https://runescape.wiki/w/Pavosaurus_rex_(player-owned_farm)"
 
 export const pavosaurus: Dinosaur = {
     name: "Pavosaurus Rex",
