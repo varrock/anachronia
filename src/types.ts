@@ -6,4 +6,5 @@ export const TYPES = {
     PavosaurusFinder: Symbol("PavosaurusFinder"),
     BrutishFinder: Symbol("BrutishFinder"),
     ArcaneFinder: Symbol("ArcaneFinder"),
+    ScimitopFinder: Symbol("ScimitopFinder"),
 };
