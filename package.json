@@ -1,0 +1,21 @@
+{
+  "name": "anachronia",
+  "version": "1.0.0",
+  "description": "Breeding Tick Bot for Anachronia Animals",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "inversify": "^5.0.1",
+    "reflect-metadata": "^0.1.13",
+    "typescript": "^3.9.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node src/index.js",
+    "watch": "tsc -p tsconfig.json -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
