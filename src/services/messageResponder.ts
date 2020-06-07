@@ -1,5 +1,5 @@
 import {Message} from "discord.js";
-import {PavosaurusFinder, BrutishFinder, ArcaneFinder, ScimitopFinder} from "../services";
+import {PavosaurusFinder, BrutishFinder, ArcaneFinder, ScimitopFinder, JadinkoFinder} from "../services";
 import {inject, injectable} from "inversify";
 import {TYPES} from "../types";
 import {dinosaurs, generateDinosaurEmbed} from "../../utils/"
@@ -11,18 +11,21 @@ export class MessageResponder {
     private brutishFinder: BrutishFinder;
     private arcaneFinder: ArcaneFinder;
     private scimitopFinder: ScimitopFinder;
+    private jadinkoFinder: JadinkoFinder;
 
     constructor(
         @inject(TYPES.PavosaurusFinder) pavosaurusFinder: PavosaurusFinder,
         @inject(TYPES.BrutishFinder) brutishFinder: BrutishFinder,
         @inject(TYPES.ArcaneFinder) arcaneFinder: ArcaneFinder,
         @inject(TYPES.ScimitopFinder) scimitopFinder: ScimitopFinder,
+        @inject(TYPES.JadinkoFinder) jadinkoFinder: JadinkoFinder,
 
     ) {
         this.pavosaurusFinder = pavosaurusFinder;
         this.brutishFinder = brutishFinder;
         this.arcaneFinder = arcaneFinder;
         this.scimitopFinder = scimitopFinder;
+        this.jadinkoFinder = jadinkoFinder;
     }
 
     handle(message: Message): Promise<Message | Message[]> {
@@ -40,6 +43,10 @@ export class MessageResponder {
 
         if (this.scimitopFinder.isScimitop(message.content)) {
             return message.channel.send({embed: generateDinosaurEmbed(dinosaurs.scimitops, message)});
+        }
+
+        if (this.jadinkoFinder.isJadinko(message.content)) {
+            return message.channel.send({embed: generateDinosaurEmbed(dinosaurs.jadinko, message)});
         }
 
         return Promise.reject();

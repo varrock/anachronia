@@ -7,4 +7,5 @@ export const TYPES = {
     BrutishFinder: Symbol("BrutishFinder"),
     ArcaneFinder: Symbol("ArcaneFinder"),
     ScimitopFinder: Symbol("ScimitopFinder"),
+    JadinkoFinder: Symbol("JadinkoFinder"),
 };

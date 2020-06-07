@@ -4,7 +4,7 @@ import {TYPES} from "./types";
 import {Bot} from "./bot";
 import {Client} from "discord.js";
 import {MessageResponder} from "./services/messageResponder";
-import {PavosaurusFinder, BrutishFinder, ArcaneFinder, ScimitopFinder} from "./services"
+import {PavosaurusFinder, BrutishFinder, ArcaneFinder, ScimitopFinder, JadinkoFinder} from "./services"
 
 let container = new Container();
 
@@ -16,5 +16,6 @@ container.bind<PavosaurusFinder>(TYPES.PavosaurusFinder).to(PavosaurusFinder).in
 container.bind<BrutishFinder>(TYPES.BrutishFinder).to(BrutishFinder).inSingletonScope();
 container.bind<ArcaneFinder>(TYPES.ArcaneFinder).to(ArcaneFinder).inSingletonScope();
 container.bind<ScimitopFinder>(TYPES.ScimitopFinder).to(ScimitopFinder).inSingletonScope();
+container.bind<JadinkoFinder>(TYPES.JadinkoFinder).to(JadinkoFinder).inSingletonScope();
 
 export default container;
