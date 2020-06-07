@@ -2,8 +2,7 @@ import {Message} from "discord.js";
 import {PingFinder} from "./pingFinder";
 import {inject, injectable} from "inversify";
 import {TYPES} from "../types";
-import {dinosaurs} from "../../utils/"
-
+import {dinosaurs, generateDinosaurEmbed} from "../../utils/"
 
 
 @injectable()
@@ -17,42 +16,9 @@ export class MessageResponder {
     }
 
     handle(message: Message): Promise<Message | Message[]> {
-        const {icon, image, initial} = dinosaurs.pavosaurus
-        const embed = {
-            "title": dinosaurs.pavosaurus.name,
-            "description": "The next breeding ticks occur at:",
-            "url": dinosaurs.pavosaurus.wiki,
-            "color": 2260654,
-            "timestamp": new Date(),
-            "footer": {
-                "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
-                "text": "footer text"
-            },
-            "thumbnail": {
-                "url": icon
-            },
-            "image": {
-                "url": image
-            },
-            "author": {
-                "name": message.author.username,
-                "url": "https://discordapp.com",
-                "icon_url": message.author.avatarURL()
-            },
-            "fields": [
-                {
-                    "name": "Breeding Pen",
-                    "value": initial
-                },
-                {
-                    "name": "Large Pen",
-                    "value": initial.clone().add(4200, 'minutes')
-                },
-
-            ]
-        };
         if (this.pingFinder.isPing(message.content)) {
-            return message.reply({embed});
+            console.log(generateDinosaurEmbed(dinosaurs.pavosaurus, message));
+            return message.channel.send({embed: generateDinosaurEmbed(dinosaurs.pavosaurus, message)});
         }
 
         return Promise.reject();
