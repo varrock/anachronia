@@ -5,6 +5,7 @@ import {ScimitopFinder} from "./scimitopFinder";
 import {JadinkoFinder} from "./jadinkoFinder";
 import {VaranusaurFinder} from "./varanusaurFinder";
 import {SalamanderFinder} from "./salamanderFinder";
+import {FrogFinder} from "./frogFinder";
 
 export {
     PavosaurusFinder,
@@ -14,4 +15,5 @@ export {
     JadinkoFinder,
     VaranusaurFinder,
     SalamanderFinder,
+    FrogFinder,
 }

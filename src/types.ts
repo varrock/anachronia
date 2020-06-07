@@ -10,4 +10,5 @@ export const TYPES = {
     JadinkoFinder: Symbol("JadinkoFinder"),
     VaranusaurFinder: Symbol("VaranusaurFinder"),
     SalamanderFinder: Symbol("SalamanderFinder"),
+    FrogFinder: Symbol("FrogFinder"),
 };

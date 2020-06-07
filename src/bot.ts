@@ -32,7 +32,8 @@ export class Bot {
 
             this.messageResponder.handle(message).then(() => {
                 console.log("Response sent!");
-            }).catch(() => {
+            }).catch((error) => {
+                console.log(error)
                 console.log("Response not sent.")
             })
         });

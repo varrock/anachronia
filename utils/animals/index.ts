@@ -5,6 +5,11 @@ import {scimitops} from "./scimitops";
 import {jadinko} from "./jadinko";
 import {varanusaur} from "./varanusaur";
 import {salamander} from "./salamander";
+import {frog} from "./frog";
+
+// Small Animals: Frog, Salamander
+// Medium Animals: Jadinko, Varanusaur
+// Large Animals: Arcane, Brutish, Scimitops, Bagrada, Spicati, Asciatops, Corbicula, Oculi, Malletops, Pavosaurus
 
 export {
     pavosaurus,
@@ -14,4 +19,5 @@ export {
     jadinko,
     varanusaur,
     salamander,
+    frog,
 }

@@ -7,6 +7,7 @@ import {
     JadinkoFinder,
     VaranusaurFinder,
     SalamanderFinder,
+    FrogFinder
 } from "../services";
 import {inject, injectable} from "inversify";
 import {TYPES} from "../types";
@@ -22,6 +23,7 @@ export class MessageResponder {
     private jadinkoFinder: JadinkoFinder;
     private varanusaurFinder: VaranusaurFinder;
     private salamanderFinder: SalamanderFinder;
+    private frogFinder: FrogFinder;
 
     constructor(
         @inject(TYPES.PavosaurusFinder) pavosaurusFinder: PavosaurusFinder,
@@ -31,6 +33,7 @@ export class MessageResponder {
         @inject(TYPES.JadinkoFinder) jadinkoFinder: JadinkoFinder,
         @inject(TYPES.VaranusaurFinder) varanusaurFinder: VaranusaurFinder,
         @inject(TYPES.SalamanderFinder) salamanderFinder: SalamanderFinder,
+        @inject(TYPES.FrogFinder) frogFinder: FrogFinder,
 
     ) {
         this.pavosaurusFinder = pavosaurusFinder;
@@ -40,6 +43,7 @@ export class MessageResponder {
         this.jadinkoFinder = jadinkoFinder;
         this.varanusaurFinder = varanusaurFinder;
         this.salamanderFinder = salamanderFinder;
+        this.frogFinder = frogFinder;
     }
 
     handle(message: Message): Promise<Message | Message[]> {
@@ -69,6 +73,10 @@ export class MessageResponder {
 
         if (this.salamanderFinder.isSalamander(message.content)) {
             return message.channel.send({embed: generateDinosaurEmbed(dinosaurs.salamander, message)});
+        }
+
+        if (this.frogFinder.isFrog(message.content)) {
+            return message.channel.send({embed: generateDinosaurEmbed(dinosaurs.frog, message)});
         }
 
         return Promise.reject();
