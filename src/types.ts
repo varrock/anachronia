@@ -5,4 +5,5 @@ export const TYPES = {
     MessageResponder: Symbol("MessageResponder"),
     PavosaurusFinder: Symbol("PavosaurusFinder"),
     BrutishFinder: Symbol("BrutishFinder"),
+    ArcaneFinder: Symbol("ArcaneFinder"),
 };
