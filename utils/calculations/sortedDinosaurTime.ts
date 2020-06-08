@@ -17,35 +17,35 @@ function sortedBreedingTicks() {
     let unsortedArray = []
     unsortedArray.push({
         name: frog.name,
-        nextBreeding: nextBreedingTick(frog)
+        value: nextBreedingTick(frog)
     })
     unsortedArray.push({
         name: salamander.name,
-        nextBreeding: nextBreedingTick(salamander)
+        value: nextBreedingTick(salamander)
     })
     unsortedArray.push({
         name: pavosaurus.name,
-        nextBreeding: nextBreedingTick(pavosaurus)
+        value: nextBreedingTick(pavosaurus)
     })
     unsortedArray.push({
         name: "Asciatops/Bagrada/Corbicula/Spicati",
-        nextBreeding: nextBreedingTick(spicati)
+        value: nextBreedingTick(spicati)
     })
     unsortedArray.push({
         name: "Malletops/Oculi",
-        nextBreeding: nextBreedingTick(malletops)
+        value: nextBreedingTick(malletops)
     })
     unsortedArray.push({
         name: "Arcane/Brutish/Scimitops",
-        nextBreeding: nextBreedingTick(arcane)
+        value: nextBreedingTick(arcane)
     })
     unsortedArray.push({
         name: varanusaur.name,
-        nextBreeding: nextBreedingTick(varanusaur)
+        value: nextBreedingTick(varanusaur)
     })
-    let sortedArray = unsortedArray.sort((a,b) => a.nextBreeding.diff(b.nextBreeding))
+    let sortedArray = unsortedArray.sort((a,b) => a.value.diff(b.value))
     sortedArray.forEach(element => {
-        element.nextBreeding = humaniseTime(element.nextBreeding, false)
+        element.value = humaniseTime(element.value, false)
     })
     return sortedArray
 }
@@ -54,35 +54,35 @@ function sortedRegularTicks() {
     let unsortedArray = []
     unsortedArray.push({
         name: frog.name,
-        nextRegular: nextRegularTick(frog)
+        value: nextRegularTick(frog)
     })
     unsortedArray.push({
         name: salamander.name,
-        nextRegular: nextRegularTick(salamander)
+        value: nextRegularTick(salamander)
     })
     unsortedArray.push({
         name: pavosaurus.name,
-        nextRegular: nextRegularTick(pavosaurus)
+        value: nextRegularTick(pavosaurus)
     })
     unsortedArray.push({
         name: "Asciatops/Bagrada/Corbicula/Spicati",
-        nextRegular: nextRegularTick(malletops)
+        value: nextRegularTick(malletops)
     })
     unsortedArray.push({
         name: "Malletops/Oculi",
-        nextRegular: nextRegularTick(malletops)
+        value: nextRegularTick(malletops)
     })
     unsortedArray.push({
         name: "Arcane/Brutish/Scimitops",
-        nextRegular: nextRegularTick(arcane)
+        value: nextRegularTick(arcane)
     })
     unsortedArray.push({
         name: varanusaur.name,
-        nextRegular: nextRegularTick(varanusaur)
+        value: nextRegularTick(varanusaur)
     })
-    let sortedArray = unsortedArray.sort((a,b) => a.nextRegular.diff(b.nextRegular))
+    let sortedArray = unsortedArray.sort((a,b) => a.value.diff(b.value))
     sortedArray.forEach(element => {
-        element.nextRegular = humaniseTime(element.nextRegular, false)
+        element.value = humaniseTime(element.value, false)
     })
     return sortedArray
 }

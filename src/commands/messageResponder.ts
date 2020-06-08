@@ -1,4 +1,5 @@
 import {Message} from "discord.js";
+import {inject, injectable} from "inversify";
 import {
     PavosaurusFinder,
     BrutishFinder,
@@ -15,10 +16,9 @@ import {
     BagradaFinder,
     CorbiculaFinder
 } from "./dinosaurs";
-import {inject, injectable} from "inversify";
+import {BreedingFinder} from "./breeding";
 import {TYPES} from "../types";
-import {dinosaurs, generateDinosaurEmbed} from "../../utils/"
-import {sortedBreedingTicks} from "../../utils/calculations/sortedDinosaurTime";
+import {dinosaurs, generateDinosaurEmbed, generateSortedBreedingEmbed} from "../../utils/"
 
 
 @injectable()
@@ -37,6 +37,7 @@ export class MessageResponder {
     private asciatopsFinder: AsciatopsFinder;
     private bagradaFinder: BagradaFinder;
     private corbiculaFinder: CorbiculaFinder;
+    private breedingFinder: BreedingFinder;
 
     constructor(
         @inject(TYPES.PavosaurusFinder) pavosaurusFinder: PavosaurusFinder,
@@ -52,7 +53,8 @@ export class MessageResponder {
         @inject(TYPES.SpicatiFinder) spicatiFinder: SpicatiFinder,
         @inject(TYPES.AsciatopsFinder) asciatopsFinder: AsciatopsFinder,
         @inject(TYPES.BagradaFinder) bagradaFinder: BagradaFinder,
-        @inject(TYPES.CorbiculaFinder) corbiculaFinder: CorbiculaFinder
+        @inject(TYPES.CorbiculaFinder) corbiculaFinder: CorbiculaFinder,
+        @inject(TYPES.BreedingFinder) breedingFinder: BreedingFinder
 
     ) {
         this.pavosaurusFinder = pavosaurusFinder;
@@ -69,6 +71,7 @@ export class MessageResponder {
         this.asciatopsFinder = asciatopsFinder;
         this.bagradaFinder = bagradaFinder;
         this.corbiculaFinder = corbiculaFinder;
+        this.breedingFinder = breedingFinder;
     }
 
     handle(message: Message): Promise<Message | Message[]> {
@@ -125,8 +128,11 @@ export class MessageResponder {
         }
 
         if (this.corbiculaFinder.isCorbicula(message.content)) {
-            console.log(sortedBreedingTicks())
             return message.channel.send({embed: generateDinosaurEmbed(dinosaurs.corbicula, message)});
+        }
+
+        if (this.breedingFinder.isBreeding(message.content)) {
+            return message.channel.send({embed: generateSortedBreedingEmbed(message)});
         }
 
         return Promise.reject();
