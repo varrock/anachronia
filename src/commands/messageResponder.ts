@@ -17,8 +17,9 @@ import {
     CorbiculaFinder
 } from "./dinosaurs";
 import {BreedingFinder} from "./breeding";
+import {RegularFinder} from "./regular";
 import {TYPES} from "../types";
-import {dinosaurs, generateDinosaurEmbed, generateSortedBreedingEmbed} from "../../utils/"
+import {dinosaurs, generateDinosaurEmbed, generateSortedBreedingEmbed, generateSortedRegularEmbed} from "../../utils/"
 
 
 @injectable()
@@ -38,6 +39,7 @@ export class MessageResponder {
     private bagradaFinder: BagradaFinder;
     private corbiculaFinder: CorbiculaFinder;
     private breedingFinder: BreedingFinder;
+    private regularFinder: RegularFinder;
 
     constructor(
         @inject(TYPES.PavosaurusFinder) pavosaurusFinder: PavosaurusFinder,
@@ -54,7 +56,8 @@ export class MessageResponder {
         @inject(TYPES.AsciatopsFinder) asciatopsFinder: AsciatopsFinder,
         @inject(TYPES.BagradaFinder) bagradaFinder: BagradaFinder,
         @inject(TYPES.CorbiculaFinder) corbiculaFinder: CorbiculaFinder,
-        @inject(TYPES.BreedingFinder) breedingFinder: BreedingFinder
+        @inject(TYPES.BreedingFinder) breedingFinder: BreedingFinder,
+        @inject(TYPES.RegularFinder) regularFinder: RegularFinder
 
     ) {
         this.pavosaurusFinder = pavosaurusFinder;
@@ -72,6 +75,7 @@ export class MessageResponder {
         this.bagradaFinder = bagradaFinder;
         this.corbiculaFinder = corbiculaFinder;
         this.breedingFinder = breedingFinder;
+        this.regularFinder = regularFinder;
     }
 
     handle(message: Message): Promise<Message | Message[]> {
@@ -133,6 +137,10 @@ export class MessageResponder {
 
         if (this.breedingFinder.isBreeding(message.content)) {
             return message.channel.send({embed: generateSortedBreedingEmbed(message)});
+        }
+
+        if (this.regularFinder.isRegular(message.content)) {
+            return message.channel.send({embed: generateSortedRegularEmbed(message)});
         }
 
         return Promise.reject();

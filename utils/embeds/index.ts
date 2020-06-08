@@ -1,7 +1,8 @@
 import generateDinosaurEmbed from "./dinosaur";
-import {generateSortedBreedingEmbed} from "./sorted";
+import {generateSortedBreedingEmbed, generateSortedRegularEmbed} from "./sorted";
 
 export {
     generateDinosaurEmbed,
-    generateSortedBreedingEmbed
+    generateSortedBreedingEmbed,
+    generateSortedRegularEmbed
 }
