@@ -3,7 +3,7 @@ import {Container} from "inversify";
 import {TYPES} from "./types";
 import {Bot} from "./bot";
 import {Client} from "discord.js";
-import {MessageResponder} from "./services/messageResponder";
+import {MessageResponder} from "./commands/messageResponder";
 import {
     PavosaurusFinder,
     BrutishFinder,
@@ -19,7 +19,7 @@ import {
     AsciatopsFinder,
     BagradaFinder,
     CorbiculaFinder
-} from "./services/dinoFinders"
+} from "./commands/dinosaurs"
 
 let container = new Container();
 

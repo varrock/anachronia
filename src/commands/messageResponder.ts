@@ -14,7 +14,7 @@ import {
     AsciatopsFinder,
     BagradaFinder,
     CorbiculaFinder
-} from "./dinoFinders";
+} from "./dinosaurs";
 import {inject, injectable} from "inversify";
 import {TYPES} from "../types";
 import {dinosaurs, generateDinosaurEmbed} from "../../utils/"
