@@ -19,7 +19,7 @@ import {
     AsciatopsFinder,
     BagradaFinder,
     CorbiculaFinder
-} from "./services"
+} from "./services/dinoFinders"
 
 let container = new Container();
 
