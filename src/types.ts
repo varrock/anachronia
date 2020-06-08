@@ -13,4 +13,5 @@ export const TYPES = {
     FrogFinder: Symbol("FrogFinder"),
     MalletopsFinder: Symbol("MalletopsFinder"),
     OculiFinder: Symbol("OculiFinder"),
+    SpicatiFinder: Symbol("SpicatiFinder"),
 };

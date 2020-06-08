@@ -8,6 +8,7 @@ import {salamander} from "./salamander";
 import {frog} from "./frog";
 import {malletops} from "./malletops";
 import {oculi} from "./oculi";
+import {spicati} from "./spicati";
 
 // Small Animals: Frog, Salamander
 // Medium Animals: Jadinko, Varanusaur
@@ -24,4 +25,5 @@ export {
     frog,
     malletops,
     oculi,
+    spicati,
 }

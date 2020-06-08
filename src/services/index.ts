@@ -8,6 +8,7 @@ import {SalamanderFinder} from "./salamanderFinder";
 import {FrogFinder} from "./frogFinder";
 import {MalletopsFinder} from "./malletopsFinder";
 import {OculiFinder} from "./oculiFinder";
+import {SpicatiFinder} from "./spicatiFinder";
 
 export {
     PavosaurusFinder,
@@ -20,4 +21,5 @@ export {
     FrogFinder,
     MalletopsFinder,
     OculiFinder,
+    SpicatiFinder
 }

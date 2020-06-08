@@ -10,6 +10,7 @@ import {
     FrogFinder,
     MalletopsFinder,
     OculiFinder,
+    SpicatiFinder,
 } from "../services";
 import {inject, injectable} from "inversify";
 import {TYPES} from "../types";
@@ -28,6 +29,7 @@ export class MessageResponder {
     private frogFinder: FrogFinder;
     private malletopsFinder: MalletopsFinder;
     private oculiFinder: OculiFinder;
+    private spicatiFinder: SpicatiFinder;
 
     constructor(
         @inject(TYPES.PavosaurusFinder) pavosaurusFinder: PavosaurusFinder,
@@ -40,6 +42,7 @@ export class MessageResponder {
         @inject(TYPES.FrogFinder) frogFinder: FrogFinder,
         @inject(TYPES.MalletopsFinder) malletopsFinder: MalletopsFinder,
         @inject(TYPES.OculiFinder) oculiFinder: OculiFinder,
+        @inject(TYPES.SpicatiFinder) spicatiFinder: SpicatiFinder,
 
     ) {
         this.pavosaurusFinder = pavosaurusFinder;
@@ -52,6 +55,7 @@ export class MessageResponder {
         this.frogFinder = frogFinder;
         this.malletopsFinder = malletopsFinder;
         this.oculiFinder = oculiFinder;
+        this.spicatiFinder = spicatiFinder;
     }
 
     handle(message: Message): Promise<Message | Message[]> {
@@ -93,6 +97,10 @@ export class MessageResponder {
 
         if (this.oculiFinder.isOculi(message.content)) {
             return message.channel.send({embed: generateDinosaurEmbed(dinosaurs.oculi, message)});
+        }
+
+        if (this.spicatiFinder.isSpicati(message.content)) {
+            return message.channel.send({embed: generateDinosaurEmbed(dinosaurs.spicati, message)});
         }
 
         return Promise.reject();
