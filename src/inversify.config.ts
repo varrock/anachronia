@@ -14,6 +14,7 @@ import {
     SalamanderFinder,
     FrogFinder,
     MalletopsFinder,
+    OculiFinder,
 } from "./services"
 
 let container = new Container();
@@ -31,5 +32,6 @@ container.bind<VaranusaurFinder>(TYPES.VaranusaurFinder).to(VaranusaurFinder).in
 container.bind<SalamanderFinder>(TYPES.SalamanderFinder).to(SalamanderFinder).inSingletonScope();
 container.bind<FrogFinder>(TYPES.FrogFinder).to(FrogFinder).inSingletonScope();
 container.bind<MalletopsFinder>(TYPES.MalletopsFinder).to(MalletopsFinder).inSingletonScope();
+container.bind<OculiFinder>(TYPES.OculiFinder).to(OculiFinder).inSingletonScope();
 
 export default container;

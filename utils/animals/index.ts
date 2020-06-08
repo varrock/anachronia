@@ -7,6 +7,7 @@ import {varanusaur} from "./varanusaur";
 import {salamander} from "./salamander";
 import {frog} from "./frog";
 import {malletops} from "./malletops";
+import {oculi} from "./oculi";
 
 // Small Animals: Frog, Salamander
 // Medium Animals: Jadinko, Varanusaur
@@ -22,4 +23,5 @@ export {
     salamander,
     frog,
     malletops,
+    oculi,
 }

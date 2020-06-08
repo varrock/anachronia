@@ -12,4 +12,5 @@ export const TYPES = {
     SalamanderFinder: Symbol("SalamanderFinder"),
     FrogFinder: Symbol("FrogFinder"),
     MalletopsFinder: Symbol("MalletopsFinder"),
+    OculiFinder: Symbol("OculiFinder"),
 };
