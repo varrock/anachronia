@@ -1,7 +1,7 @@
 import {Client, Message} from "discord.js";
 import {inject, injectable} from "inversify";
 import {TYPES} from "./types";
-import {MessageResponder} from "./services/messageResponder";
+import {MessageResponder} from "./services";
 import {prefix} from '../utils';
 
 @injectable()
