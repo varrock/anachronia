@@ -1,7 +1,7 @@
 import {MessageResponder} from "./messageResponder";
-import {AllFinder} from "./all";
+import {BreedingFinder} from "./breeding";
 
 export {
     MessageResponder,
-    AllFinder,
+    BreedingFinder,
 }
