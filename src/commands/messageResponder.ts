@@ -18,6 +18,7 @@ import {
 import {inject, injectable} from "inversify";
 import {TYPES} from "../types";
 import {dinosaurs, generateDinosaurEmbed} from "../../utils/"
+import {sortedBreedingTicks} from "../../utils/calculations/sortedDinosaurTime";
 
 
 @injectable()
@@ -124,6 +125,7 @@ export class MessageResponder {
         }
 
         if (this.corbiculaFinder.isCorbicula(message.content)) {
+            console.log(sortedBreedingTicks())
             return message.channel.send({embed: generateDinosaurEmbed(dinosaurs.corbicula, message)});
         }
 
