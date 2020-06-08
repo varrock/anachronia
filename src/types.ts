@@ -17,5 +17,5 @@ export const TYPES = {
     AsciatopsFinder: Symbol("AsciatopsFinder"),
     BagradaFinder: Symbol("BagradaFinder"),
     CorbiculaFinder: Symbol("CorbiculaFinder"),
-    AllFinder: Symbol("AllFinder"),
+    BreedingFinder: Symbol("BreedingFinder"),
 };
