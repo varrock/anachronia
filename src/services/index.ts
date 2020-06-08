@@ -9,6 +9,9 @@ import {FrogFinder} from "./frogFinder";
 import {MalletopsFinder} from "./malletopsFinder";
 import {OculiFinder} from "./oculiFinder";
 import {SpicatiFinder} from "./spicatiFinder";
+import {AsciatopsFinder} from "./asciatopsFinder";
+import {BagradaFinder} from "./bagradaFinder";
+import {CorbiculaFinder} from "./corbiculaFinder";
 
 export {
     PavosaurusFinder,
@@ -21,5 +24,8 @@ export {
     FrogFinder,
     MalletopsFinder,
     OculiFinder,
-    SpicatiFinder
+    SpicatiFinder,
+    AsciatopsFinder,
+    BagradaFinder,
+    CorbiculaFinder
 }

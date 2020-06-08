@@ -16,6 +16,9 @@ import {
     MalletopsFinder,
     OculiFinder,
     SpicatiFinder,
+    AsciatopsFinder,
+    BagradaFinder,
+    CorbiculaFinder
 } from "./services"
 
 let container = new Container();
@@ -35,5 +38,8 @@ container.bind<FrogFinder>(TYPES.FrogFinder).to(FrogFinder).inSingletonScope();
 container.bind<MalletopsFinder>(TYPES.MalletopsFinder).to(MalletopsFinder).inSingletonScope();
 container.bind<OculiFinder>(TYPES.OculiFinder).to(OculiFinder).inSingletonScope();
 container.bind<SpicatiFinder>(TYPES.SpicatiFinder).to(SpicatiFinder).inSingletonScope();
+container.bind<AsciatopsFinder>(TYPES.AsciatopsFinder).to(AsciatopsFinder).inSingletonScope();
+container.bind<BagradaFinder>(TYPES.BagradaFinder).to(BagradaFinder).inSingletonScope();
+container.bind<CorbiculaFinder>(TYPES.CorbiculaFinder).to(CorbiculaFinder).inSingletonScope();
 
 export default container;

@@ -11,6 +11,9 @@ import {
     MalletopsFinder,
     OculiFinder,
     SpicatiFinder,
+    AsciatopsFinder,
+    BagradaFinder,
+    CorbiculaFinder
 } from "../services";
 import {inject, injectable} from "inversify";
 import {TYPES} from "../types";
@@ -30,6 +33,9 @@ export class MessageResponder {
     private malletopsFinder: MalletopsFinder;
     private oculiFinder: OculiFinder;
     private spicatiFinder: SpicatiFinder;
+    private asciatopsFinder: AsciatopsFinder;
+    private bagradaFinder: BagradaFinder;
+    private corbiculaFinder: CorbiculaFinder;
 
     constructor(
         @inject(TYPES.PavosaurusFinder) pavosaurusFinder: PavosaurusFinder,
@@ -43,6 +49,9 @@ export class MessageResponder {
         @inject(TYPES.MalletopsFinder) malletopsFinder: MalletopsFinder,
         @inject(TYPES.OculiFinder) oculiFinder: OculiFinder,
         @inject(TYPES.SpicatiFinder) spicatiFinder: SpicatiFinder,
+        @inject(TYPES.AsciatopsFinder) asciatopsFinder: AsciatopsFinder,
+        @inject(TYPES.BagradaFinder) bagradaFinder: BagradaFinder,
+        @inject(TYPES.CorbiculaFinder) corbiculaFinder: CorbiculaFinder
 
     ) {
         this.pavosaurusFinder = pavosaurusFinder;
@@ -56,6 +65,9 @@ export class MessageResponder {
         this.malletopsFinder = malletopsFinder;
         this.oculiFinder = oculiFinder;
         this.spicatiFinder = spicatiFinder;
+        this.asciatopsFinder = asciatopsFinder;
+        this.bagradaFinder = bagradaFinder;
+        this.corbiculaFinder = corbiculaFinder;
     }
 
     handle(message: Message): Promise<Message | Message[]> {
@@ -101,6 +113,18 @@ export class MessageResponder {
 
         if (this.spicatiFinder.isSpicati(message.content)) {
             return message.channel.send({embed: generateDinosaurEmbed(dinosaurs.spicati, message)});
+        }
+
+        if (this.asciatopsFinder.isAsciatops(message.content)) {
+            return message.channel.send({embed: generateDinosaurEmbed(dinosaurs.asciatops, message)});
+        }
+
+        if (this.bagradaFinder.isBagrada(message.content)) {
+            return message.channel.send({embed: generateDinosaurEmbed(dinosaurs.bagrada, message)});
+        }
+
+        if (this.corbiculaFinder.isCorbicula(message.content)) {
+            return message.channel.send({embed: generateDinosaurEmbed(dinosaurs.corbicula, message)});
         }
 
         return Promise.reject();

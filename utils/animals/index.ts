@@ -9,6 +9,9 @@ import {frog} from "./frog";
 import {malletops} from "./malletops";
 import {oculi} from "./oculi";
 import {spicati} from "./spicati";
+import {asciatops} from "./asciatops";
+import {bagrada} from "./bagrada";
+import {corbicula} from "./corbicula";
 
 // Small Animals: Frog, Salamander
 // Medium Animals: Jadinko, Varanusaur
@@ -26,4 +29,7 @@ export {
     malletops,
     oculi,
     spicati,
+    asciatops,
+    bagrada,
+    corbicula
 }
