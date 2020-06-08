@@ -6,6 +6,7 @@ import {JadinkoFinder} from "./jadinkoFinder";
 import {VaranusaurFinder} from "./varanusaurFinder";
 import {SalamanderFinder} from "./salamanderFinder";
 import {FrogFinder} from "./frogFinder";
+import {MalletopsFinder} from "./malletopsFinder";
 
 export {
     PavosaurusFinder,
@@ -16,4 +17,5 @@ export {
     VaranusaurFinder,
     SalamanderFinder,
     FrogFinder,
+    MalletopsFinder,
 }

@@ -11,4 +11,5 @@ export const TYPES = {
     VaranusaurFinder: Symbol("VaranusaurFinder"),
     SalamanderFinder: Symbol("SalamanderFinder"),
     FrogFinder: Symbol("FrogFinder"),
+    MalletopsFinder: Symbol("MalletopsFinder"),
 };
