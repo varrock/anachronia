@@ -4,6 +4,7 @@ import humaniseTime from "./humaniseTime";
 import {
     pavosaurus,
     arcane,
+    jadinko,
     varanusaur,
     salamander,
     frog,
@@ -22,6 +23,10 @@ function sortedBreedingTicks() {
     unsortedArray.push({
         name: salamander.name,
         value: nextBreedingTick(salamander)
+    })
+    unsortedArray.push({
+        name: jadinko.name,
+        value: nextBreedingTick(jadinko)
     })
     unsortedArray.push({
         name: pavosaurus.name,
@@ -59,6 +64,10 @@ function sortedRegularTicks() {
     unsortedArray.push({
         name: salamander.name,
         value: nextRegularTick(salamander)
+    })
+    unsortedArray.push({
+        name: jadinko.name,
+        value: nextRegularTick(jadinko)
     })
     unsortedArray.push({
         name: pavosaurus.name,
