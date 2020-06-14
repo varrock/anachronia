@@ -19,4 +19,5 @@ export const TYPES = {
     CorbiculaFinder: Symbol("CorbiculaFinder"),
     BreedingFinder: Symbol("BreedingFinder"),
     RegularFinder: Symbol("RegularFinder"),
+    AllFinder: Symbol("AllFinder"),
 };

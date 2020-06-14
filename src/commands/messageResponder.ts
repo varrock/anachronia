@@ -18,6 +18,7 @@ import {
 } from "./dinosaurs";
 import {BreedingFinder} from "./breeding";
 import {RegularFinder} from "./regular";
+import {AllFinder} from "./all";
 import {TYPES} from "../types";
 import {dinosaurs, generateDinosaurEmbed, generateSortedBreedingEmbed, generateSortedRegularEmbed} from "../../utils/"
 
@@ -40,6 +41,7 @@ export class MessageResponder {
     private corbiculaFinder: CorbiculaFinder;
     private breedingFinder: BreedingFinder;
     private regularFinder: RegularFinder;
+    private allFinder: AllFinder;
 
     constructor(
         @inject(TYPES.PavosaurusFinder) pavosaurusFinder: PavosaurusFinder,
@@ -57,7 +59,8 @@ export class MessageResponder {
         @inject(TYPES.BagradaFinder) bagradaFinder: BagradaFinder,
         @inject(TYPES.CorbiculaFinder) corbiculaFinder: CorbiculaFinder,
         @inject(TYPES.BreedingFinder) breedingFinder: BreedingFinder,
-        @inject(TYPES.RegularFinder) regularFinder: RegularFinder
+        @inject(TYPES.RegularFinder) regularFinder: RegularFinder,
+        @inject(TYPES.AllFinder) allFinder: AllFinder
 
     ) {
         this.pavosaurusFinder = pavosaurusFinder;
@@ -76,6 +79,7 @@ export class MessageResponder {
         this.corbiculaFinder = corbiculaFinder;
         this.breedingFinder = breedingFinder;
         this.regularFinder = regularFinder;
+        this.allFinder = allFinder;
     }
 
     handle(message: Message): Promise<Message | Message[]> {
@@ -141,6 +145,10 @@ export class MessageResponder {
 
         if (this.regularFinder.isRegular(message.content)) {
             return message.channel.send({embed: generateSortedRegularEmbed(message)});
+        }
+
+        if (this.allFinder.isAll(message.content)) {
+            return message.channel.send("Hello!");
         }
 
         return Promise.reject();
