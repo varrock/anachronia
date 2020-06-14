@@ -11,11 +11,12 @@ import {
     malletops,
     spicati,
 } from "../animals";
+import {DinosaurElement, DinosaurMoment} from "../interfaces";
 
 // We only need to sort 7 'sets' of dinosaurs instead of the full 14 as some share ticks.
 
 function sortedBreedingTicks() {
-    let unsortedArray = []
+    let unsortedArray: DinosaurMoment[] = []
     unsortedArray.push({
         name: frog.name,
         value: nextBreedingTick(frog)
@@ -48,10 +49,12 @@ function sortedBreedingTicks() {
         name: varanusaur.name,
         value: nextBreedingTick(varanusaur)
     })
-    let sortedArray = unsortedArray.sort((a,b) => a.value.diff(b.value))
-    sortedArray.forEach(element => {
-        element.value = humaniseTime(element.value, false)
-    })
+    let sortedMomentArray = unsortedArray.sort((a: DinosaurMoment, b: DinosaurMoment) => a.value.diff(b.value))
+    let sortedArray: DinosaurElement[] = sortedMomentArray.map(item => ({name: item.name, value: humaniseTime(item.value, false)}))
+    //
+    // sortedArray.forEach(element => {
+    //     element.value = humaniseTime(element.value, false)
+    // })
     return sortedArray
 }
 
@@ -89,11 +92,27 @@ function sortedRegularTicks() {
         name: varanusaur.name,
         value: nextRegularTick(varanusaur)
     })
-    let sortedArray = unsortedArray.sort((a,b) => a.value.diff(b.value))
+    let sortedArray = unsortedArray.sort((a, b) => a.value.diff(b.value))
     sortedArray.forEach(element => {
         element.value = humaniseTime(element.value, false)
     })
     return sortedArray
+}
+
+function buildTickString(sortedTicks: Array<any>) {
+    let tickString = "";
+    sortedTicks.forEach(element => {
+        tickString += `**${element.name}** - ${element.value}`
+    })
+}
+
+function sortedTicks(breeding: object[], regular: object[]) {
+    let allTicks = [];
+    let breedingTicks = {
+        name: "Breeding Pen",
+        value: ""
+    }
+
 }
 
 export {
