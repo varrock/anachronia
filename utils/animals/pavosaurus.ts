@@ -1,5 +1,5 @@
 import * as moment from 'moment'
-import Dinosaur from "../interfaces";
+import {Dinosaur} from "../interfaces";
 
 // Initial Breeding Tick
 const initialTick = moment.utc(Date.UTC(2020, 5, 5, 18, 0))

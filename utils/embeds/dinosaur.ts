@@ -1,4 +1,4 @@
-import Dinosaur from "../interfaces";
+import {Dinosaur} from "../interfaces";
 import {Message} from "discord.js";
 import {nextBreedingTick, nextRegularTick, humaniseTime} from "../calculations"
 

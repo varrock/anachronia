@@ -1,6 +1,6 @@
 import { Moment } from "moment";
 
-export default interface Dinosaur {
+interface Dinosaur {
     readonly name: string
     readonly penType: string
     readonly initial: Moment
@@ -9,4 +9,20 @@ export default interface Dinosaur {
     readonly wiki: string
     readonly breedingPenRate: number
     readonly regularPenRate: number
+}
+
+interface DinosaurMoment {
+    name: string
+    value: Moment
+}
+
+interface DinosaurElement {
+    name: string;
+    value: string;
+}
+
+export {
+    Dinosaur,
+    DinosaurMoment,
+    DinosaurElement
 }

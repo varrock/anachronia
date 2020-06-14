@@ -1,4 +1,4 @@
-import Dinosaur from "../interfaces";
+import {Dinosaur} from "../interfaces";
 import * as moment from 'moment';
 
 export default function nextBreedingTick(dinosaurInfo: Dinosaur){
