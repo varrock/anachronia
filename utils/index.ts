@@ -4,7 +4,8 @@ import {
     generateDinosaurEmbed,
     generateSortedBreedingEmbed,
     generateSortedRegularEmbed,
-    generatedSortedEmbed
+    generatedSortedEmbed,
+    generateSortedPersonalEmbed
 } from './embeds'
 import {nextBreedingTick} from './calculations'
 
@@ -15,5 +16,6 @@ export {
     generateSortedRegularEmbed,
     nextBreedingTick,
     generatedSortedEmbed,
+    generateSortedPersonalEmbed,
     prefix,
 }
