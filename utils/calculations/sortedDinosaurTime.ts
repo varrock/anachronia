@@ -112,11 +112,11 @@ function sortedTicks(): TickElement[] {
         {
             name: "Breeding Pen",
             value: buildTickString(sortedBreedingTicks()),
-            inline: true
+            inline: false
         }, {
             name: "Regular Pen",
             value: buildTickString(sortedRegularTicks()),
-            inline: true
+            inline: false
         }
     ]
 
