@@ -20,4 +20,5 @@ export const TYPES = {
     BreedingFinder: Symbol("BreedingFinder"),
     RegularFinder: Symbol("RegularFinder"),
     AllFinder: Symbol("AllFinder"),
+    MeFinder: Symbol("MeFinder"),
 };

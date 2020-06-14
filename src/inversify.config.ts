@@ -3,7 +3,7 @@ import {Container} from "inversify";
 import {TYPES} from "./types";
 import {Bot} from "./bot";
 import {Client} from "discord.js";
-import {MessageResponder, BreedingFinder, RegularFinder, AllFinder} from "./commands";
+import {MessageResponder, BreedingFinder, RegularFinder, AllFinder, MeFinder} from "./commands";
 import {
     PavosaurusFinder,
     BrutishFinder,
@@ -44,5 +44,6 @@ container.bind<CorbiculaFinder>(TYPES.CorbiculaFinder).to(CorbiculaFinder).inSin
 container.bind<BreedingFinder>(TYPES.BreedingFinder).to(BreedingFinder).inSingletonScope();
 container.bind<RegularFinder>(TYPES.RegularFinder).to(RegularFinder).inSingletonScope();
 container.bind<AllFinder>(TYPES.AllFinder).to(AllFinder).inSingletonScope();
+container.bind<MeFinder>(TYPES.MeFinder).to(MeFinder).inSingletonScope();
 
 export default container;
