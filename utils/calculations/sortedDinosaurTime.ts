@@ -11,11 +11,11 @@ import {
     malletops,
     spicati,
 } from "../animals";
-import {DinosaurElement, DinosaurMoment} from "../interfaces";
+import {DinosaurElement, DinosaurMoment, TickElement} from "../interfaces";
 
 // We only need to sort 7 'sets' of dinosaurs instead of the full 14 as some share ticks.
 
-function sortedBreedingTicks() {
+function sortedBreedingTicks(): DinosaurElement[] {
     let unsortedArray: DinosaurMoment[] = []
     unsortedArray.push({
         name: frog.name,
@@ -50,16 +50,15 @@ function sortedBreedingTicks() {
         value: nextBreedingTick(varanusaur)
     })
     let sortedMomentArray = unsortedArray.sort((a: DinosaurMoment, b: DinosaurMoment) => a.value.diff(b.value))
-    let sortedArray: DinosaurElement[] = sortedMomentArray.map(item => ({name: item.name, value: humaniseTime(item.value, false)}))
-    //
-    // sortedArray.forEach(element => {
-    //     element.value = humaniseTime(element.value, false)
-    // })
+    let sortedArray: DinosaurElement[] = sortedMomentArray.map(item => ({
+        name: item.name,
+        value: humaniseTime(item.value, false)
+    }))
     return sortedArray
 }
 
-function sortedRegularTicks() {
-    let unsortedArray = []
+function sortedRegularTicks(): DinosaurElement[] {
+    let unsortedArray: DinosaurMoment[] = []
     unsortedArray.push({
         name: frog.name,
         value: nextRegularTick(frog)
@@ -92,30 +91,39 @@ function sortedRegularTicks() {
         name: varanusaur.name,
         value: nextRegularTick(varanusaur)
     })
-    let sortedArray = unsortedArray.sort((a, b) => a.value.diff(b.value))
-    sortedArray.forEach(element => {
-        element.value = humaniseTime(element.value, false)
-    })
+    let sortedMomentArray = unsortedArray.sort((a: DinosaurMoment, b: DinosaurMoment) => a.value.diff(b.value))
+    let sortedArray: DinosaurElement[] = sortedMomentArray.map(item => ({
+        name: item.name,
+        value: humaniseTime(item.value, false)
+    }))
     return sortedArray
 }
 
-function buildTickString(sortedTicks: Array<any>) {
+function buildTickString(sortedTicks: DinosaurElement[]): string {
     let tickString = "";
     sortedTicks.forEach(element => {
-        tickString += `**${element.name}** - ${element.value}`
+        tickString += `**${element.name}** - ${element.value}\n`
     })
+    return tickString
 }
 
-function sortedTicks(breeding: object[], regular: object[]) {
-    let allTicks = [];
-    let breedingTicks = {
-        name: "Breeding Pen",
-        value: ""
-    }
+function sortedTicks(): TickElement[] {
+    return [
+        {
+            name: "Breeding Pen",
+            value: buildTickString(sortedBreedingTicks()),
+            inline: true
+        }, {
+            name: "Regular Pen",
+            value: buildTickString(sortedRegularTicks()),
+            inline: true
+        }
+    ]
 
 }
 
 export {
     sortedBreedingTicks,
-    sortedRegularTicks
+    sortedRegularTicks,
+    sortedTicks
 }
