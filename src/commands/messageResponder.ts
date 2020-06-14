@@ -20,7 +20,13 @@ import {BreedingFinder} from "./breeding";
 import {RegularFinder} from "./regular";
 import {AllFinder} from "./all";
 import {TYPES} from "../types";
-import {dinosaurs, generateDinosaurEmbed, generateSortedBreedingEmbed, generateSortedRegularEmbed} from "../../utils/"
+import {
+    dinosaurs,
+    generateDinosaurEmbed,
+    generateSortedBreedingEmbed,
+    generateSortedRegularEmbed,
+    generatedSortedEmbed
+} from "../../utils/"
 
 
 @injectable()
@@ -61,7 +67,6 @@ export class MessageResponder {
         @inject(TYPES.BreedingFinder) breedingFinder: BreedingFinder,
         @inject(TYPES.RegularFinder) regularFinder: RegularFinder,
         @inject(TYPES.AllFinder) allFinder: AllFinder
-
     ) {
         this.pavosaurusFinder = pavosaurusFinder;
         this.brutishFinder = brutishFinder;
@@ -148,7 +153,7 @@ export class MessageResponder {
         }
 
         if (this.allFinder.isAll(message.content)) {
-            return message.channel.send("Hello!");
+            return message.channel.send({embed: generatedSortedEmbed(message)});
         }
 
         return Promise.reject();
