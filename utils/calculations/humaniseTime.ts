@@ -1,7 +1,7 @@
 import * as moment from 'moment';
 import {Moment} from 'moment';
 
-export default function humaniseTime(nextTick: Moment, eta: boolean = true) {
+export default function humaniseTime(nextTick: Moment, eta: boolean = true): string {
     const currentMoment = moment.utc();
     const partialHours = Math.floor(nextTick.diff(currentMoment, 'minutes')/60);
     const partialMinutes = nextTick.diff(currentMoment, 'minutes') % 60;
