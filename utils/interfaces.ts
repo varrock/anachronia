@@ -17,12 +17,19 @@ interface DinosaurMoment {
 }
 
 interface DinosaurElement {
-    name: string;
-    value: string;
+    name: string
+    value: string
+}
+
+interface TickElement {
+    name: string
+    value: string
+    inline: boolean
 }
 
 export {
     Dinosaur,
     DinosaurMoment,
-    DinosaurElement
+    DinosaurElement,
+    TickElement
 }
