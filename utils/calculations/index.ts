@@ -3,8 +3,78 @@ import nextRegularTick from "./regular"
 import humaniseTime from "./humaniseTime";
 import {sortedRegularTicks, sortedBreedingTicks, sortedTicks} from "./sortedDinosaurTime";
 import {Message} from "discord.js";
-import {Dinosaur} from "../interfaces";
+import {Dinosaur, DinosaurElement, DinosaurMoment} from "../interfaces";
 import {arcane, frog, jadinko, malletops, pavosaurus, salamander, spicati, varanusaur} from "../animals";
+import {totalInterfaceList} from "../constants";
+
+function generateUnsortedArray(interfaceList: Dinosaur[] = totalInterfaceList, breeding: boolean = true): DinosaurMoment[] {
+    let unsortedArray: DinosaurMoment[] = []
+    interfaceList.forEach(element => {
+        if (breeding) {
+            switch (element) {
+                case arcane:
+                    unsortedArray.push({
+                        name: "Arcane/Brutish/Scimitops",
+                        value: nextBreedingTick(arcane)
+                    })
+                    break;
+                case spicati:
+                    unsortedArray.push({
+                        name: "Asciatops/Bagrada/Corbicula/Spicati",
+                        value: nextBreedingTick(spicati)
+                    })
+                    break;
+                case malletops:
+                    unsortedArray.push({
+                        name: "Malletops/Oculi",
+                        value: nextBreedingTick(malletops)
+                    })
+                    break;
+                default:
+                    unsortedArray.push({
+                        name: element.name,
+                        value: nextBreedingTick(element)
+                    })
+            }
+        } else {
+            switch (element) {
+                case arcane:
+                    unsortedArray.push({
+                        name: "Arcane/Brutish/Scimitops",
+                        value: nextRegularTick(arcane)
+                    })
+                    break;
+                case spicati:
+                    unsortedArray.push({
+                        name: "Asciatops/Bagrada/Corbicula/Spicati",
+                        value: nextRegularTick(spicati)
+                    })
+                    break;
+                case malletops:
+                    unsortedArray.push({
+                        name: "Malletops/Oculi",
+                        value: nextRegularTick(malletops)
+                    })
+                    break;
+                default:
+                    unsortedArray.push({
+                        name: element.name,
+                        value: nextRegularTick(element)
+                    })
+            }
+        }
+    })
+    return unsortedArray
+}
+
+
+function buildTickString(sortedTicks: DinosaurElement[]): string {
+    let tickString = "";
+    sortedTicks.forEach(element => {
+        tickString += `**${element.name}** - ${element.value}\n`
+    })
+    return tickString
+}
 
 function getInterfacesFromRoles(message: Message): Dinosaur[] {
     let interfaceList: Dinosaur[] = [];
@@ -27,5 +97,7 @@ export {
     sortedRegularTicks,
     sortedBreedingTicks,
     sortedTicks,
-    getInterfacesFromRoles
+    buildTickString,
+    getInterfacesFromRoles,
+    generateUnsortedArray
 }
