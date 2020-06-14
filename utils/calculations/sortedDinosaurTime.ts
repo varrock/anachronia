@@ -38,17 +38,27 @@ function sortedTicks(): TickElement[] {
             inline: false
         }
     ]
-
 }
 
-function sortedPersonalTicks(message: Message) {
+function sortedPersonalTicks(message: Message): TickElement[] {
     const interfaceList = getInterfacesFromRoles(message);
-
-
+    if (interfaceList && interfaceList.length) return [
+        {
+            name: "Breeding Pen",
+            value: buildTickString(sortedBreedingTicks(interfaceList)),
+            inline: false
+        }, {
+            name: "Regular Pen",
+            value: buildTickString(sortedRegularTicks(interfaceList)),
+            inline: false
+        }
+    ]
+    return undefined
 }
 
 export {
     sortedBreedingTicks,
     sortedRegularTicks,
-    sortedTicks
+    sortedTicks,
+    sortedPersonalTicks
 }

@@ -1,7 +1,7 @@
 import nextBreedingTick from "./breeding";
 import nextRegularTick from "./regular"
 import humaniseTime from "./humaniseTime";
-import {sortedRegularTicks, sortedBreedingTicks, sortedTicks} from "./sortedDinosaurTime";
+import {sortedRegularTicks, sortedBreedingTicks, sortedTicks, sortedPersonalTicks} from "./sortedDinosaurTime";
 import {Message} from "discord.js";
 import {Dinosaur, DinosaurElement, DinosaurMoment} from "../interfaces";
 import {arcane, frog, jadinko, malletops, pavosaurus, salamander, spicati, varanusaur} from "../animals";
@@ -99,5 +99,6 @@ export {
     sortedTicks,
     buildTickString,
     getInterfacesFromRoles,
-    generateUnsortedArray
+    generateUnsortedArray,
+    sortedPersonalTicks
 }
