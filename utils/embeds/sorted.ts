@@ -1,7 +1,7 @@
 import {Message} from "discord.js";
 import {sortedBreedingTicks, sortedRegularTicks, sortedTicks} from "../calculations";
 
-function generateSortedBreedingEmbed(message: Message) {
+function generateSortedBreedingEmbed(message: Message): object {
     return {
         "title": "Upcoming Breeding Pen Ticks",
         "description": "The upcoming **Breeding** Pen ticks for all Ranch Out of Time animals are:",
@@ -21,7 +21,7 @@ function generateSortedBreedingEmbed(message: Message) {
     };
 }
 
-function generateSortedRegularEmbed(message: Message) {
+function generateSortedRegularEmbed(message: Message): object {
     return {
         "title": "Upcoming Regular Pen Ticks",
         "description": "The upcoming **Regular** Pen ticks for all Ranch Out of Time animals are:",
@@ -41,7 +41,7 @@ function generateSortedRegularEmbed(message: Message) {
     };
 }
 
-function generatedSortedEmbed(message: Message) {
+function generatedSortedEmbed(message: Message): object {
     return {
         "title": "Upcoming Pen Ticks",
         "description": "The upcoming ticks for all Ranch Out of Time animals are:",
