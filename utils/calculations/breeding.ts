@@ -1,7 +1,8 @@
 import {Dinosaur} from "../interfaces";
+import {Moment} from "moment";
 import * as moment from 'moment';
 
-export default function nextBreedingTick(dinosaurInfo: Dinosaur){
+export default function nextBreedingTick(dinosaurInfo: Dinosaur): Moment {
     let nextMoment = dinosaurInfo.initial.clone();
     const currentMoment = moment.utc();
     while (!nextMoment.isAfter((currentMoment))) {
