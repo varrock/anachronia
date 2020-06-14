@@ -1,8 +1,8 @@
 import {Dinosaur} from "../interfaces";
-import {Message} from "discord.js";
+import {Message, MessageEmbed} from "discord.js";
 import {nextBreedingTick, nextRegularTick, humaniseTime} from "../calculations"
 
-export default function generateDinosaurEmbed(dinosaurInfo: Dinosaur, message: Message) {
+export default function generateDinosaurEmbed(dinosaurInfo: Dinosaur, message: Message): object {
     const {name, penType, icon, image, wiki} = dinosaurInfo;
     return {
         "title": name,
