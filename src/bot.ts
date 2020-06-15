@@ -26,8 +26,8 @@ export class Bot {
         this.client.on('ready', () => {
             this.client.user.setActivity("with dinosaurs!").catch(console.error);
             const mainChannelObject: TextChannel = (this.client.channels.cache.get(mainChannel) as TextChannel);
-            let job1 = new CronJob(
-                '0 51 * * * *',
+            let reminders = new CronJob(
+                '0 10,30,50 * * * *',
                 () => {
                     mainChannelObject.send("51 past homie").catch(console.error);
                     console.log('Congratulations, this is 51 past');
@@ -35,22 +35,6 @@ export class Bot {
                 null,
                 true
             );
-            //
-            // let job2 = new CronJob(
-            //     '0 30 * * * *',
-            //     function () {
-            //         console.log('Congratulations, this is 30 past');
-            //     }
-            // );
-            // job2.start()
-            //
-            // let job = new CronJob(
-            //     '0 50 * * * *',
-            //     function () {
-            //         console.log('Congratulations, this is 50 past');
-            //     }
-            // );
-            // job.start()
         })
 
         this.client.on('message', (message: Message) => {
