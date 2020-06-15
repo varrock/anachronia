@@ -1,6 +1,6 @@
-import {totalInterfaceList} from "../utils/constants";
-import {generateUnsortedArray} from "../utils/calculations";
-import {DinosaurMoment} from "../utils/interfaces";
+import {totalInterfaceList} from "../constants";
+import {generateUnsortedArray} from "./index";
+import {DinosaurMoment} from "../interfaces";
 import * as moment from 'moment';
 
 function validTicks(): object {
@@ -46,4 +46,8 @@ function validTicks(): object {
         large: sortedLargePens && sortedLargePens.length ? sortedLargePens : undefined,
     }
 
+}
+
+export {
+    validTicks
 }
