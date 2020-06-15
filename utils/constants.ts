@@ -4,7 +4,10 @@ const totalInterfaceList = [frog, salamander, jadinko, varanusaur, arcane, spica
 
 const prefix = "!";
 
+const mainChannel = "595856750398144533";
+
 export {
     prefix,
-    totalInterfaceList
+    totalInterfaceList,
+    mainChannel
 }

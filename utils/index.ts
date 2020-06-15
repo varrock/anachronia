@@ -1,4 +1,4 @@
-import {prefix} from './constants'
+import {prefix, mainChannel} from './constants'
 import * as dinosaurs from './animals'
 import {
     generateDinosaurEmbed,
@@ -18,4 +18,5 @@ export {
     generatedSortedEmbed,
     generateSortedPersonalEmbed,
     prefix,
+    mainChannel
 }
