@@ -43,6 +43,7 @@ function validTicks() {
 function createMentionString(animalNameArray: string[], channel: TextChannel): string {
     let animalString = "";
     animalNameArray.forEach(animalObject => {
+        if (animalObject === 'Pavosaurus Rex') animalObject = "Pavosaurus";
         let animalName = channel.guild.roles.cache.find(role => role.name === animalObject) ? channel.guild.roles.cache.find(role => role.name === animalObject).id : animalObject
         animalString += `<@&${animalName}>\n`
     })
