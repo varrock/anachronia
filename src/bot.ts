@@ -32,7 +32,7 @@ export class Bot {
                 '0 10,30,50 * * * *',
                 () => {
                     if (generateReminderEmbed(mainChannelObject) !== null) {
-                        mainChannelObject.send({embed: generateReminderEmbed(mainChannelObject)}).then().catch(console.error);
+                        mainChannelObject.send({embed: generateReminderEmbed(mainChannelObject)}).catch(console.error);
                         mainChannelObject.send(createMentionStringMessage(mainChannelObject)).then(msg => msg.delete()).catch(console.error)
                     }
                 },
