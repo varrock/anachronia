@@ -18,10 +18,6 @@ function validTicks() {
         .filter(element => element.value.diff(now) <= 600000)
         .sort((a: DinosaurMoment, b: DinosaurMoment) => a.value.diff(b.value));
 
-    console.log("breeding")
-    console.log(breedingArray)
-    console.log("regular")
-    console.log(regularArray)
     // Splitting Regular Ticks into Small/Medium/Large
     if (regularArray && regularArray.length) {
         regularArray.forEach(element => {
