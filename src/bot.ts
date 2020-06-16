@@ -4,6 +4,7 @@ import {TYPES} from "./types";
 import {MessageResponder} from "./commands";
 import {prefix, mainChannel} from '../utils';
 import {generateReminderEmbed} from "../utils/embeds";
+import {createMentionStringMessage} from "../utils/calculations";
 
 let CronJob = require('cron').CronJob;
 
@@ -32,10 +33,7 @@ export class Bot {
                 () => {
                     if (generateReminderEmbed(mainChannelObject) !== null) {
                         mainChannelObject.send({embed: generateReminderEmbed(mainChannelObject)}).then().catch(console.error);
-                        mainChannelObject.send("Tick!").then(msg => msg.delete()).catch(console.error)
-                        console.log("Generating and sending Tick Embed")
-                    } else {
-                        console.log("No breeding tick exists")
+                        mainChannelObject.send(createMentionStringMessage(mainChannelObject)).then(msg => msg.delete()).catch(console.error)
                     }
                 },
                 null,
