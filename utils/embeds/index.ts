@@ -5,11 +5,13 @@ import {
     generatedSortedEmbed,
     generateSortedPersonalEmbed
 } from "./sorted";
+import {generateReminderEmbed} from "./reminder";
 
 export {
     generateDinosaurEmbed,
     generateSortedBreedingEmbed,
     generateSortedRegularEmbed,
     generatedSortedEmbed,
-    generateSortedPersonalEmbed
+    generateSortedPersonalEmbed,
+    generateReminderEmbed
 }
