@@ -6,7 +6,7 @@ import {Message} from "discord.js";
 import {Dinosaur, DinosaurElement, DinosaurMoment} from "../interfaces";
 import {arcane, frog, jadinko, malletops, pavosaurus, salamander, spicati, varanusaur} from "../animals";
 import {totalInterfaceList} from "../constants";
-import {validTicks, createMentionString} from "./cron";
+import {validTicks, createMentionString, createMentionStringMessage} from "./cron";
 
 function generateUnsortedArray(interfaceList: Dinosaur[] = totalInterfaceList, breeding: boolean = true): DinosaurMoment[] {
     let unsortedArray: DinosaurMoment[] = []
@@ -103,5 +103,6 @@ export {
     generateUnsortedArray,
     sortedPersonalTicks,
     validTicks,
-    createMentionString
+    createMentionString,
+    createMentionStringMessage
 }

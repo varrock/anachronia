@@ -49,7 +49,15 @@ function createMentionString(animalNameArray: string[], channel: TextChannel): s
     return animalString
 }
 
+function createMentionStringMessage(channel: TextChannel): string {
+    let {breeding, small, medium, large} = validTicks();
+    let breedingStrings = breeding.map(element => element.name)
+    let allMentions = breedingStrings.concat(small, medium, large)
+    return createMentionString(allMentions, channel)
+}
+
 export {
     validTicks,
-    createMentionString
+    createMentionString,
+    createMentionStringMessage
 }
