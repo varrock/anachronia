@@ -3,6 +3,7 @@ import {inject, injectable} from "inversify";
 import {TYPES} from "./types";
 import {MessageResponder} from "./commands";
 import {prefix, mainChannel} from '../utils';
+import {generateReminderEmbed} from "../utils/embeds";
 
 let CronJob = require('cron').CronJob;
 
@@ -29,8 +30,13 @@ export class Bot {
             let reminders = new CronJob(
                 '0 10,30,50 * * * *',
                 () => {
-                    mainChannelObject.send("51 past homie").catch(console.error);
-                    console.log('Congratulations, this is 51 past');
+                    if (generateReminderEmbed(mainChannelObject) !== null) {
+                        mainChannelObject.send({embed: generateReminderEmbed(mainChannelObject)}).then().catch(console.error);
+                        mainChannelObject.send("Tick!").then(msg => msg.delete()).catch(console.error)
+                        console.log("Generating and sending Tick Embed")
+                    } else {
+                        console.log("No breeding tick exists")
+                    }
                 },
                 null,
                 true
