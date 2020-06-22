@@ -21,7 +21,7 @@ function validTicks() {
     // Splitting Regular Ticks into Small/Medium/Large
     if (regularArray && regularArray.length) {
         regularArray.forEach(element => {
-            if (element.name === "Arcane/Brutish/Scimitops" || element.name === "Asciatops/Bagrada/Corbicula/Spicati" || element.name === "Malletops/Oculi" || element.name === "Pavosaurus") {
+            if (element.name === "Arcane/Brutish/Scimitops" || element.name === "Asciatops/Bagrada/Corbicula/Spicati" || element.name === "Malletops/Oculi" || element.name === "Pavosaurus" || element.name === "Pavosaurus Rex") {
                 sortedLargePens.push(element.name)
             } else if (element.name === "Varanusaur" || element.name === "Jadinko") {
                 sortedMediumPens.push(element.name)
