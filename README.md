@@ -18,7 +18,7 @@
     <img src="https://img.shields.io/badge/discord.js-12.2.0-brightgreen?style=for-the-badge&colorB=168eef" alt="Discord.js" />
   </a>
 
-  <a href="">
+  <a href="https://github.com/varrock/anachronia/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/dragonite/djangohat.svg?style=for-the-badge&colorB=61829F" alt="LICENSE" />
   </a>
 </div>
