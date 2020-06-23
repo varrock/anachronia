@@ -27,7 +27,7 @@ export class Bot {
 
         this.client.on('ready', () => {
             this.client.user.setActivity("with dinosaurs!").catch(console.error);
-            const mainChannelObject: TextChannel = (this.client.channels.cache.get(mainChannel) as TextChannel);
+            const mainChannelObject: TextChannel = (this.client.channels.cache.find(channel => (channel as TextChannel).name === 'root') as TextChannel);
             let reminders = new CronJob(
                 '0 10,30,50 * * * *',
                 () => {
